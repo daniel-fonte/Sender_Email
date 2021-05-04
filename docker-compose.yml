@@ -1,0 +1,11 @@
+version: '3'
+
+services: 
+    database:
+        image: mysql:5.7
+        restart: always
+        environment: 
+            MYSQL_ROOT_PASSWORD: root
+        volumes: 
+            - ./database/scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
+            - ./database/scripts/check.sql:/scripts/check.sql
